@@ -125,5 +125,76 @@ var interfacesTipos;
         plegable: true,
         envio: () => 'si hay envio'
     };
+    const lego = {
+        nombre: 'Lego',
+        piezas: 1,
+        material: 'plastico',
+        pilas: false,
+        fabricante: {
+            marca: "Hasbro",
+            pais: 'USA'
+        },
+        slogan() { return 'Siempre te divertiremos'; },
+        llega(dias) {
+            console.log(`llega en ${dias} días`);
+        }
+    };
+    console.log(lego);
+    console.log(lego.slogan());
+    lego.llega(4);
 })(interfacesTipos || (interfacesTipos = {}));
+var implementaciones;
+(function (implementaciones) {
+    class Cosa {
+        constructor(nombre, material, anio) {
+            this.nombre = nombre;
+            this.material = material;
+            this.anio = anio;
+        }
+        darNombre() {
+            return this.nombre;
+        }
+    }
+    const objeto = new Cosa('Jabon', 'barro', 2000);
+    console.log(objeto);
+    console.log(objeto.darNombre());
+})(implementaciones || (implementaciones = {}));
+var genericos;
+(function (genericos) {
+    const pepe = {
+        nombre: 'Pepe',
+        etapa: 'Niño',
+        escuela: 'Don Bosco'
+    };
+    const juan = {
+        nombre: 'Juan',
+        etapa: 'Jubilado',
+        trabajo: 'Almacen'
+    };
+    const pablo = {
+        nombre: 'Pablo',
+        etapa: 'Universitario',
+        escuela: 'UBA',
+        trabajo: 'Mc Donalds'
+    };
+    function imprimir(valor) {
+        console.log(valor);
+        return valor;
+    }
+    const devolverDatos = (valor) => valor;
+    const persona1 = devolverDatos(pablo);
+    const persona2 = devolverDatos(pablo);
+    const persona3 = devolverDatos(pablo);
+    console.log(persona1.escuela);
+    console.log(persona2.escuela, persona2.trabajo);
+    console.log(persona3.trabajo);
+    class Generica {
+        hazAlgo(x, y) {
+            return x;
+        }
+    }
+    let instancia = new Generica();
+    let variable = instancia.hazAlgo(3, 4);
+    console.log(variable);
+})(genericos || (genericos = {}));
 //# sourceMappingURL=traspilacion.js.map

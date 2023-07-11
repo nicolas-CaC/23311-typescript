@@ -17,14 +17,42 @@ namespace interfacesTipos {
     }
 
 
-
     interface Juguete {
         nombre: string,
         piezas: number,
         material: string,
         pilas: boolean,
-        slogan: () => string
+        slogan: () => string,
+        llega(dias: number): void,
+        fabricante: Fabricante
     }
+
+    interface Fabricante {
+        marca: string,
+        pais: string
+    }
+
+    const lego: Juguete = {
+        nombre: 'Lego',
+        piezas: 1,
+        material: 'plastico',
+        pilas: false,
+        fabricante: {
+            marca: "Hasbro",
+            pais: 'USA'
+        },
+        slogan() { return 'Siempre te divertiremos' },
+        llega(dias) {
+            console.log(`llega en ${dias} días`);
+        }
+    }
+
+    console.log(lego);
+    console.log(lego.slogan());
+    lego.llega(4);
+
+
+
 
 
 }
